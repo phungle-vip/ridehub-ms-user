@@ -24,6 +24,7 @@ import com.ridehub.user.config.ZaiChatbotProperties;
 import com.ridehub.user.service.dto.ChatbotRequestDTO;
 import com.ridehub.user.service.dto.ChatbotResponseDTO;
 import org.springframework.stereotype.Service;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -32,6 +33,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
+@ConditionalOnProperty(prefix = "zai.chatbot", name = "enabled", havingValue = "true")
 public class ChatbotService {
 
         private static final DateTimeFormatter DMY_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy");

@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "zai.chatbot")
 public class ZaiChatbotProperties {
 
+    private boolean enabled = false;
     private String apiKey;
     private String baseUrl = "https://api.z.ai/api/paas/v4/";
     private String model = "glm-4.6";
@@ -14,6 +15,14 @@ public class ZaiChatbotProperties {
     private Long tokenExpire = 3600000L; // 1 hour
     private Integer connectionPoolSize = 10;
     private Long connectionPoolKeepAlive = 300000L; // 5 minutes
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public String getApiKey() {
         return apiKey;
